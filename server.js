@@ -76,27 +76,59 @@ app.post('/api/notes', (req, res) => {
         title, text,
         id: uuidv4()
     }
-    // console.log(newNote);
-    // console.log(readJSON());
+
     readJSON().then((response) => {
-        console.log('NEW LOG HERE',response)
+
         let fixedRes = JSON.parse(response);
-        // console.log(fixedRes)
-        // savedNotes = [...response];
-        console.log(typeof fixedRes);
+
         fixedRes.push(newNote);
         
         writeJSON(fixedRes).then(() => {
             res.end();
-        });
-
-        
+        });   
     })
-    // console.log(savedNotes)
-    // savedNotes.push(newNote);
-    
+});
 
-    //destructure
+app.delete('/api/notes/:id', (req, res) => {
+    const delNote = req.params.id;
+
+    console.log(delNote);
+
+    readJSON().then((response) => {
+
+        let newArr = JSON.parse(response);
+
+        const delArr = newArr.filter(test => test.id != delNote);
+        console.log(delArr);
+        
+        
+        writeJSON(delArr).then(() => {
+            res.end();
+        });   
+    })
+
+
+
+
+    // fs.readFileSync('./db/db.json', 'utf8', (err, data) => {
+    //     if(err){
+    //        console.log(err);
+    //        return 
+    //     } ;
+    //     console.log(data);
+    //     let newArr = JSON.parse(data);
+    //     const delArr = newArr.filter(test => test.id != delNote);
+    //     console.log(delArr);
+    //     return delArr
+    // }).then((err, response) => {
+    //     fs.writeFile('./db/db.json', response, err => {
+    //         if(err) {
+    //             console.error(err)
+    //             return
+    //         }
+    //         console.log(`${delNote} has been deleted`);
+    //     })
+    // })
 })
 
 //to access req.params.id
