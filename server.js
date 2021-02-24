@@ -55,7 +55,7 @@ const readJSON = () => {
 //function here to rewrite json
 const writeJSON = (savedNotes) => {
     
-    return writeFileAsync('./db/db.json', JSON.stringify(savedNotes));
+    return writeFileAsync(path.join(__dirname,'/db/db.json'), JSON.stringify(savedNotes));
 
 }
 
@@ -138,4 +138,3 @@ app.delete('/api/notes/:id', (req, res) => {
 
 //start server and set to listen
 app.listen(PORT, () => console.log(`Currently listening on PORT ${PORT}`));
-readJSON();
