@@ -1,10 +1,1 @@
-[
-    {
-        "title":"Test Title",
-        "text":"Test text"
-    },
-    {
-        "title":"Second Note",
-        "text":"Now the second"
-    }
-]
+[{"title":"It will say something here","text":"And then more words here","id":"5c3f80ca-fc3d-48df-a643-9b4212f3bf62"},{"title":"This is our second note","text":"Round 2","id":"68a61220-d0c5-4bd0-9796-9da0d5d41849"},{"title":"Testing HTML","text":"Please work","id":"07ff59e6-21c8-4a68-9349-b35b94e8ef53"}]
