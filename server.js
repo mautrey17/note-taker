@@ -47,7 +47,7 @@ let savedNotes = [];
 
 //function here to call to read json
 const readJSON = () => {
-    return readFileAsync('./db/db.json', 'utf8') 
+    return readFileAsync(path.join(__dirname,'/db/db.json'), 'utf8') 
 }
 
 
