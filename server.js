@@ -84,7 +84,7 @@ app.post('/api/notes', (req, res) => {
         fixedRes.push(newNote);
         
         writeJSON(fixedRes).then(() => {
-            res.end();
+            res.json(newNote);
         });   
     })
 });
