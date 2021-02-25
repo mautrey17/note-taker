@@ -61,7 +61,11 @@ const writeJSON = (savedNotes) => {
 
 
 //path to notes saved to api
-app.get('/api/notes', (req, res) => res.json(savedObj));
+app.get('/api/notes', (req, res) => {
+    readJSON().then(notes => {
+        res.json(JSON.parse(notes))
+    })
+});
 
 //path to go to index file
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, './public/index.html')));
